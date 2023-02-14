@@ -4,40 +4,28 @@
 
 {% block content%}
 {% load static %}
-<!-- Cabecera -->  
-  <section class="page-section clearfix">
-    <div class="container">
-      <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'core/img/intro.jpg'%}" alt="">
-        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-          <h2 class="section-heading mb-4">
-            <span class="section-heading-upper">Déjate sorprender</span>
-            <span class="section-heading-lower">Te gustará</span>
-          </h2>
-          <p class="mb-3">Trabajamos sólo con los mejores ingredientes. Una vez lo pruebes, nuestro café será la mejor forma de empezar tu rutina diaria.
-          </p>
-          <div class="intro-button mx-auto">
-            <a class="btn btn-primary btn-xl" href="store.html">Visítanos</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-    <!-- Mensaje -->
-    <section class="page-section cta">
+<!-- Contenido --> 
+  {%for service in services%} 
+    <section class="page-section">
       <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">Compromiso total</span>
-                <span class="section-heading-lower">Garantizado</span>
+        <div class="product-item">
+          <div class="product-item-title d-flex">
+            <div class="bg-faded p-5 d-flex mr-auto rounded">
+              <h2 class="section-heading mb-0">
+                <span class="section-heading-upper">{{service.subtitle}}</span>
+                <span class="section-heading-lower">{{service.title}}</span>
               </h2>
-              <p class="mb-0">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" </p>
+            </div>
+          </div>
+          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{service.image.url}}" alt="">
+          <div class="product-item-description d-flex ml-auto">
+            <div class="bg-faded p-5 rounded">
+              <p class="mb-0">{{service.content}}</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section> 
+    {%endfor%}
 {% endblock%}

@@ -38,8 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'core',
     'services',
+    'blog',
+    'social',
+    'pages',
+    'contact',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -65,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.processors.ctx_dict',
             ],
         },
     },
@@ -130,3 +138,24 @@ MEDIA_ROOT= os.path.join(BASE_DIR,"media")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#configuracion ckeditor.
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+
+#configurar email
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'c9a9a52f71e974'
+EMAIL_HOST_PASSWORD = '372cf333fad989'
+EMAIL_PORT = '2525'
